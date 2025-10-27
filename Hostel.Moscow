@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Уютный Дом — Хостел</title>
+  <style>
+    :root{
+      --bg:#ffffff;--text:#222;--accent:#2c6fb3;--muted:#666;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);line-height:1.4}
+    .header{background:#f6f9fc;padding:18px;display:flex;flex-wrap:wrap;align-items:center;gap:12px;border-bottom:1px solid #e6eef6}
+    .logo{width:56px;height:56px;border-radius:8px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px}
+    .header h1{margin:0;font-size:20px}
+    .header address{font-style:normal;color:var(--muted);font-size:14px}
+    .actions{margin-left:auto}
+    .actions .booking{background:var(--accent);color:#fff;padding:8px 12px;border-radius:6px;text-decoration:none}
+    .lang-select{display:flex;gap:8px;justify-content:center;padding:10px;background:#f0f4f9;border-bottom:1px solid #e6eef6}
+    .lang-select button{border:none;background:#fff;border-radius:5px;padding:6px 10px;cursor:pointer;font-size:16px}
+    .container{max-width:980px;margin:24px auto;padding:0 16px}
+    .about h2,.gallery h2,.map h2{margin-top:0}
+    .about p{font-size:16px}
+    .price{margin-top:8px;font-size:18px;color:var(--accent)}
+    .gallery .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px}
+    .gallery figure{margin:0;background:#fff;border:1px solid #eee;padding:8px;border-radius:6px;overflow:hidden}
+    .gallery img{width:100%;height:160px;object-fit:cover;display:block;border-radius:4px}
+    .gallery figcaption{padding-top:6px;font-size:13px;color:var(--muted)}
+    footer{text-align:center;color:var(--muted);padding:18px 0;border-top:1px solid #f0f4f9}
+    iframe.map-frame{width:100%;height:400px;border:0;margin-top:12px;border-radius:8px}
+    @media(max-width:480px){.logo{width:46px;height:46px}iframe.map-frame{height:300px}}
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">УД</div>
+    <h1 data-lang="ru">Уютный Дом</h1>
+    <h1 data-lang="uz" hidden>Yorqin Uy</h1>
+    <h1 data-lang="tj" hidden>Хонаи Ором</h1>
+    <h1 data-lang="kg" hidden>Жайлуу Үй</h1>
+    <address>12-я Парковая ул., 4, Москва</address>
+    <div class="actions">
+      <a class="booking" href="https://wa.me/" data-lang="ru">Забронировать</a>
+      <a class="booking" href="https://wa.me/" data-lang="uz" hidden>Bron qilish</a>
+      <a class="booking" href="https://wa.me/" data-lang="tj" hidden>Брон кардан</a>
+      <a class="booking" href="https://wa.me/" data-lang="kg" hidden>Брондоо</a>
+    </div>
+  </header>
+
+  <div class="lang-select">
+    <button onclick="setLang('ru')">🇷🇺 Рус</button>
+    <button onclick="setLang('uz')">🇺🇿 Oʻz</button>
+    <button onclick="setLang('tj')">🇹🇯 Тоҷ</button>
+    <button onclick="setLang('kg')">🇰🇬 Кыргыз</button>
+  </div>
+
+  <main class="container">
+    <section class="about">
+      <h2 data-lang="ru">О нашем хостеле</h2>
+      <h2 data-lang="uz" hidden>Mehmonxonamiz haqida</h2>
+      <h2 data-lang="tj" hidden>Дар бораи хостели мо</h2>
+      <h2 data-lang="kg" hidden>Биздин хостел жөнүндө</h2>
+
+      <p data-lang="ru">В хостеле есть <strong>высокоскоростной интернет</strong>, <strong>частная большая территория и парковка</strong>, горячая вода, чистое бельё, регулярная уборка и внимательный персонал.</p>
+      <p data-lang="uz" hidden>Hostelda <strong>yuqori tezlikdagi internet</strong>, <strong>katta shaxsiy hudud va avtoturargoh</strong>, issiq suv, toza choyshablar va e’tiborli xodimlar mavjud.</p>
+      <p data-lang="tj" hidden>Дар хостел <strong>интернети босуръат</strong>, <strong>минтақаи хусусии калон бо таваққуфгоҳ</strong>, оби гарм ва кормандони ғамхор мавҷуданд.</p>
+      <p data-lang="kg" hidden>Хостелде <strong>жогорку ылдамдыктагы интернет</strong>, <strong>чоң жеке аймак жана токтотуучу жай</strong>, жылуу суу жана камкор кызматкерлер бар.</p>
+
+      <p class="price" data-lang="ru">Цена: <strong>от 600 рублей / сутки</strong></p>
+      <p class="price" data-lang="uz" hidden>Narx: <strong>kuniga 600 rubl dan</strong></p>
+      <p class="price" data-lang="tj" hidden>Нарх: <strong>аз 600 рубл дар як шабонарӯз</strong></p>
+      <p class="price" data-lang="kg" hidden>Баасы: <strong>суткасына 600 рублден</strong></p>
+    </section>
+
+    <section class="gallery">
+      <h2 data-lang="ru">Фотогалерея</h2>
+      <h2 data-lang="uz" hidden>Fotogalereya</h2>
+      <h2 data-lang="tj" hidden>Галереяи аксҳо</h2>
+      <h2 data-lang="kg" hidden>Фотогалерея</h2>
+      <div class="grid">
+
+        <!-- Фото с оригинального сайта -->
+        <figure><img src="https://uyutdom.github.io/uyutny-dom/IMG_0012.jpeg" alt=""><figcaption>Вход / фасад</figcaption></figure>
+        <figure><img src="https://uyutdom.github.io/uyutny-dom/IMG_0014.jpeg" alt=""><figcaption>Коридор</figcaption></figure>
+        <figure><img src="https://uyutdom.github.io/uyutny-dom/IMG_0015.jpeg" alt=""><figcaption>Лестница</figcaption></figure>
+        <figure><img src="https://uyutdom.github.io/uyutny-dom/IMG_0016.jpeg" alt=""><figcaption>Кухня / столовая</figcaption></figure>
+        <figure><img src="https://uyutdom.github.io/uyutny-dom/IMG_0019.jpeg" alt=""><figcaption>Комната с кроватями</figcaption></figure>
+        <figure><img src="https://uyutdom.github.io/uyutny-dom/IMG_0020.jpeg" alt=""><figcaption>Комната 2</figcaption></figure>
+
+        <!-- Твои фото (загрузи в репозиторий и вставь пути) -->
+        <figure><img src="photo1.jpg" alt=""><figcaption>Беседка</figcaption></figure>
+        <figure><img src="photo2.jpg" alt=""><figcaption>Парковка</figcaption></figure>
+        <figure><img src="photo3.jpg" alt=""><figcaption>Территория</figcaption></figure>
+
+      </div>
+    </section>
+
+    <section class="map">
+      <h2 data-lang="ru">Мы на карте</h2>
+      <h2 data-lang="uz" hidden>Biz xaritada</h2>
+      <h2 data-lang="tj" hidden>Мо дар харита</h2>
+      <h2 data-lang="kg" hidden>Биз картада</h2>
+      <iframe class="map-frame" src="https://yandex.ru/map-widget/v1/?um=constructor%3Af269a40c99c8b8f56c2a0bba9c71b9b8f8ce1921af7cb0fa5d7e9347ee3b9cb1&amp;source=constructor" allowfullscreen></iframe>
+    </section>
+  </main>
+
+  <footer>
+    <p>© Уютный Дом, Москва</p>
+  </footer>
+
+  <script>
+    function setLang(lang){
+      document.querySelectorAll('[data-lang]').forEach(el=>{
+        el.hidden = el.getAttribute('data-lang') !== lang;
+      });
+    }
+    setLang('ru');
+  </script>
+</body>
+</html>
